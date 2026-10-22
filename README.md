@@ -19,7 +19,7 @@ Edit the page in `src/main.tsx`, the content (including `links`, `selectedResear
 
 On Vercel, import the private GitHub repository and choose the Vite preset. Build command: `npm run build`. Output directory: `dist`. Pushes to the connected production branch trigger updates automatically. No secrets, backend, or environment variables are needed. The repository can stay private while the website is public.
 
-GitHub Pages requires a supported plan for private repositories; the included Pages workflow does not overcome that restriction.
+GitHub Pages requires a supported plan for private repositories; the included Pages workflow does not overcome that restriction. It is manual-only so pushes do not trigger failing Pages deployments. Production hosting uses the separate Vercel Git integration.
 
 Fonts are loaded from Google Fonts (Newsreader and Public Sans, SIL Open Font License), with system fallbacks.
 

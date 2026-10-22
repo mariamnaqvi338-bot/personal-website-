@@ -1,7 +1,6 @@
-name: Publish personal website
+# Production hosting uses Vercel. Keep Pages available only for an explicit manual run.
+name: GitHub Pages (manual only)
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
