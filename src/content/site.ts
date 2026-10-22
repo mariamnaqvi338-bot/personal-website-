@@ -24,3 +24,23 @@ export const readingNotes: {title:string;book:string;text:string}[] = [];
 export const currently: {label:string;text:string}[] = [];
 export const skills = ['Stata','R / RStudio','SPSS','Excel','SurveyCTO / XLSForm','ATLAS.ti','Tableau','Quantitative & qualitative research','Regression & basic econometric modelling','PERT / CPM','Microsoft Office','Canva'];
 export const leadership = ['Forman Philosophy Society — Lead Publications & Newsletter Editor','McKinsey Forward Program Scholar','Benade Physics Society — Media Head','The Citizens Foundation — Baghban Ambassador'];
+
+// Homepage content supplied and approved by Mariam.
+export const links = {
+  website: 'https://personal-site-pi-ten-71.vercel.app/',
+  cv: 'https://personal-site-pi-ten-71.vercel.app/Mariam-Naqvi-CV.pdf',
+  github: 'https://github.com/mariamnaqvi338-bot',
+  linkedin: 'https://www.linkedin.com/in/syedamariam',
+  photography: 'https://syedamariamnaqvi.vsco.site/',
+};
+export const selectedResearch = [
+  {title: 'Adaptive Social Protection evaluation', label: 'Research experience · CERP', description: 'Contributed to a mixed-methods evaluation of the GIZ Adaptive Social Protection programme across four districts of Sindh. Work included SurveyCTO/XLSForm quality assurance, data coding, index development in SPSS, and qualitative analysis using ATLAS.ti.'},
+  {title: 'Trapped by Honour: Barriers to Girls’ Education in Pakistan', label: 'Publication · Young Economists Initiative', description: 'A policy analysis examining how patriarchal norms and honour-based practices restrict girls’ education and contribute to wider socio-economic inequality.'},
+  {title: 'Barriers to girls’ education in Chandrai', label: 'Independent field research', description: 'Mixed-methods field research combining more than 80 survey responses with in-person qualitative interviews with school-aged girls in Chandrai to examine barriers to education.'},
+  {title: 'Labour market outcomes in Pakistan', label: 'Academic project', description: 'Econometric analysis of Pakistan Labour Force Survey 2020–21 microdata in Stata, examining differences across gender, region, and marital status through data cleaning, descriptive statistics, regression analysis, and hypothesis testing.'},
+  {title: 'Government education expenditure and girls’ secondary school enrolment', label: 'Comparative research', description: 'A comparative study of government education expenditure and girls’ secondary school enrolment in Pakistan and Bangladesh.'},
+];
+export const personalNotes = {
+  photography: 'I take photos to hold on to what time takes away. The people, the places, the feelings and the person I was in that moment. Little pieces of life, frozen in frames so that someday I can remember not just how it looked but how it felt to be there.',
+  reading: 'I read a lot, think a lot and overthink a lot. Maybe therefore I am?',
+};

@@ -13,7 +13,7 @@ npm run dev
 
 ## Update
 
-Edit the page in `src/main.tsx`, the content in `src/content/site.ts`, and styling in `src/style.css`. The CV download is `public/Mariam-Naqvi-CV.pdf`; the private phone number was removed from this copy. Content arrays for the earlier design are retained in the content file but are not displayed.
+Edit the page in `src/main.tsx`, the content (including `links`, `selectedResearch`, and `personalNotes`) in `src/content/site.ts`, and styling in `src/style.css`. The CV download is `public/Mariam-Naqvi-CV.pdf`; the private phone number was removed from this copy. Content arrays for the earlier design are retained in the content file but are not displayed.
 
 ## Deploy
 
@@ -22,3 +22,5 @@ On Vercel, import the private GitHub repository and choose the Vite preset. Buil
 GitHub Pages requires a supported plan for private repositories; the included Pages workflow does not overcome that restriction.
 
 Fonts are loaded from Google Fonts (Newsreader and Public Sans, SIL Open Font License), with system fallbacks.
+
+The public CV link and profile URLs are the exact addresses supplied by Mariam. The bundled PDF remains available as a local copy. No publication URL was supplied for Trapped by Honour, so its title is plain text.
