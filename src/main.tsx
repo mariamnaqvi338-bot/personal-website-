@@ -19,26 +19,28 @@ function App() {
       </header>
       <main id="main">
         <section id="home" aria-labelledby="home-title">
+          <div className="hero-inner">
           <div className="introduction">
           <h1 id="home-title">{personal.name}</h1>
-          <p className="role">Economics undergraduate<br />Forman Christian College University, Lahore</p>
-          <p>I’m an Economics undergraduate at Forman Christian College University in Lahore, with a minor in Political Science. My research interests include development economics, education, gender, labour markets, and public policy.</p>
-          <p>I’m particularly interested in how household circumstances, social norms, and public institutions shape access to opportunity.</p>
+          <p className="role">Undergraduate Student in Economics<br />Forman Christian College University, Lahore</p>
+          <p>I’m an Undergraduate Student in Economics at Forman Christian College University in Lahore, with a minor in Political Science. My research interests include development economics, education, gender, labour markets, and public policy.</p>
+          <p>I am particularly interested in the role of household economic conditions, social norms, and public institutions in shaping educational access and economic opportunity.</p>
           <p className="home-links"><a href={`mailto:${personal.email}`}>Email</a><a href="#cv">CV</a><a href="#contact">Contact Me</a></p>
           </div>
           {personal.portrait && <img className="portrait" src={personal.portrait} alt="Syeda Mariam Naqvi" />}
+          </div>
         </section>
         <div className="content-grid">
           <div className="main-column">
             <section aria-labelledby="research-title">
-              <h2 id="research-title">Research & projects</h2>
+              <h2 id="research-title">Selected research</h2>
               <ol className="research-list">
                 {projects.slice(0, 3).map(project => (
                   <li key={project.title}>
                     <h3>{project.title}</h3>
                     <p><em>{project.type}</em></p>
-                    <p>{project.question}</p>
                     <p>{project.data}</p>
+                    <p>{project.methods}</p>
                   </li>
                 ))}
                 {writing.map(item => (
@@ -52,7 +54,7 @@ function App() {
             </section>
             <section aria-labelledby="beyond-title">
               <h2 id="beyond-title">Beyond research</h2>
-              <p>Outside my academic work, I enjoy reading and photography. They give me other ways to explore ideas, notice details, and look at the world around me.</p>
+              <p>Outside my academic work, I enjoy reading and photography. These interests offer space to explore ideas beyond economics and to record observations of everyday life.</p>
             </section>
             <section id="cv" aria-labelledby="cv-title">
               <h2 id="cv-title">CV</h2>
@@ -75,7 +77,7 @@ function App() {
                 {experience.filter(item => item.organization === 'The Young Economist Initiative').map(item => (
                   <li key={item.organization}>{item.role}, {item.organization}<br />{item.date}</li>
                 ))}
-                <li>Economics undergraduate, Forman Christian College University</li>
+                <li>Undergraduate Student in Economics, Forman Christian College University</li>
               </ul>
             </section>
             <section id="contact" aria-labelledby="contact-title">
@@ -87,7 +89,7 @@ function App() {
       </main>
       <footer>
         <div className="footer-inner">
-          <div><strong>{personal.name}</strong><p>Economics undergraduate<br />Forman Christian College University</p></div>
+          <div><strong>{personal.name}</strong><p>Undergraduate Student in Economics<br />Forman Christian College University</p></div>
           <div><a href={`mailto:${personal.email}`}>{personal.email}</a><p>{personal.location}</p></div>
           <div><a href="#cv">CV</a><p>© {new Date().getFullYear()} {personal.name}</p></div>
         </div>

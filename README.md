@@ -1,6 +1,6 @@
 # Syeda Mariam Naqvi
 
-A simple, single-page personal website with Home, CV, and Contact Me sections. Black text on white, using Times New Roman. Built with React, TypeScript, and Vite.
+A simple, single-page personal website with Home, selected research, CV, Background, Affiliations, and Contact Me sections. Academic layout with a blush introduction, plum links, Newsreader headings, and Public Sans body text. Built with React, TypeScript, and Vite.
 
 ## Run
 
@@ -20,3 +20,5 @@ Edit the page in `src/main.tsx`, the content in `src/content/site.ts`, and styli
 On Vercel, import the private GitHub repository and choose the Vite preset. Build command: `npm run build`. Output directory: `dist`. Pushes to the connected production branch trigger updates automatically. No secrets, backend, or environment variables are needed. The repository can stay private while the website is public.
 
 GitHub Pages requires a supported plan for private repositories; the included Pages workflow does not overcome that restriction.
+
+Fonts are loaded from Google Fonts (Newsreader and Public Sans, SIL Open Font License), with system fallbacks.
