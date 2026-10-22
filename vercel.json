@@ -1,0 +1,1 @@
+{"rewrites":[{"source":"/((?!assets/|Mariam-Naqvi-CV.pdf|photos/|portrait.jpg).*)","destination":"/index.html"}]}
