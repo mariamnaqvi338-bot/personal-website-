@@ -57,3 +57,24 @@ li { margin-block: 6px; }
   .content-grid { grid-template-columns: 1fr; padding-block: 15px; gap: 20px; }
   article { break-inside: avoid; }
 }
+.main-column > section + section, aside > section + section { margin-top: 38px; }
+.research-list { padding-left: 24px; margin: 0; }
+.research-list > li { padding-left: 6px; margin: 0 0 26px; }
+.research-list h3 { font-size: 20px; margin: 0 0 6px; }
+.research-list p { margin-bottom: 7px; }
+aside { font-size: 17px; }
+aside h2 { font-size: 25px; }
+.side-list { list-style: none; padding: 0; margin: 0; }
+.side-list li { border-bottom: 1px solid #000; padding: 12px 0; margin: 0; }
+.side-list li:first-child { padding-top: 0; }
+footer { border-top: 1px solid #000; }
+.footer-inner { width: min(100% - 56px, 1080px); margin: auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 32px; padding: 35px 0; font-size: 16px; }
+.footer-inner p { margin-top: 8px; }
+.footer-inner a { overflow-wrap: anywhere; }
+@media (max-width: 800px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 15px; }
+}
+@media (max-width: 480px) {
+  .footer-inner { width: calc(100% - 36px); }
+}
+@media print { footer { display: none; } }
