@@ -4,5 +4,8 @@
       "source": "/((?!assets/|Mariam-Naqvi-CV.pdf|photos/|writing/|portrait.jpg|portrait.png).*)",
       "destination": "/index.html"
     }
-  ]
+  ],
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }

@@ -70,7 +70,7 @@ The website is hosted on **Vercel**, connected to this private GitHub repository
 - Output directory: `dist`
 - Environment variables: none required
 
-`vercel.json` supports direct links to individual pages. The optional GitHub Pages workflow is manual-only and is separate from Vercel hosting.
+`vercel.json` supports direct links to individual pages. GitHub Actions only checks the build; Vercel handles deployment. There is no GitHub Pages deployment workflow. Previous failed Pages deployments may remain visible in GitHub history and do not indicate a Vercel failure.
 
 ## Built with
 
@@ -81,3 +81,10 @@ Some reflection images are hosted on Substack. If an image cannot load, the page
 ---
 
 © Syeda Mariam Naqvi. All rights reserved. Please do not reuse writing, photographs, or designs without permission.
+
+
+### If deployment fails
+
+In Vercel, open this project → Deployments → the newest deployment. Read its build log. Confirm that the connected repository is `mariamnaqvi338-bot/personal-site-`, Production Branch is `main`, and Root Directory is the repository root (leave blank). The framework, build command and output directory are set in `vercel.json`. Use a supported Node.js version such as 24.x.
+
+GitHub's **Website build check** validates the code but does not publish a website. GitHub Pages is not used. If a Vercel deployment is Ready but the production URL is old, check that it is a Production deployment for `main`, then promote the intended deployment to Production in Vercel. Account settings and deployment history require access to the hosting dashboard.
