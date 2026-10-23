@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { personal, links, personalNotes, selectedResearch, experience, skills, leadership, photography } from './content/site';
@@ -8,7 +8,7 @@ import './style.css';
 const navigation = [['/', 'About Me'], ['/graphics', 'Graphics & Postcards'], ['/reflections', 'Reflections'], ['/photography', 'Photography'], ['/cv', 'CV'], ['/projects', 'Projects'], ['/current-projects', 'Current Projects'], ['/contact', 'Contact']] as const;
 const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
 function PageHeading({ index, title, subtitle }: { index: string; title: string; subtitle: string }) {
-  return <div className="page-heading"><p className="label">{index} / A PERSONAL COLLECTION</p><h1>{title}</h1><p className="subtitle">{subtitle}</p></div>;
+  return <div className="page-heading"><p className="label">{index} / A PERSONAL COLLECTION</p><h1>{title}</h1><p className="subtitle" dir="auto">{subtitle}</p></div>;
 }
 function ContentsLabel({ children }: { children: React.ReactNode }) { return <div className="contents-label"><span>Contents</span><span className="dotted-line"/><span>{children}</span></div>; }
 function About() {
@@ -18,9 +18,28 @@ function Graphics() {
   return <><PageHeading index="I" title="Graphics & postcards" subtitle="Things made to be seen, held, and sent."/><ContentsLabel>GRAPHIC WORK</ContentsLabel>{graphicWork.map((item, i) => <article className="entry" key={item.title}><span className="entry-number">{roman[i] ?? i + 1}</span><div><h2>{item.title}</h2><p>{item.description}</p>{item.images.length > 0 && <div className="image-grid">{item.images.map(image => <figure key={image.src}><img src={image.src} alt={image.alt} loading="lazy"/>{image.caption && <figcaption>{image.caption}</figcaption>}</figure>)}</div>}<p className="quiet-note">Designs and further details will be added to this collection.</p></div><span className="entry-meta">{item.category}</span></article>)}</>;
 }
 function Reflections() {
-  return <><PageHeading index="II" title="Reflections" subtitle="Thoughts worked out on the page."/><ContentsLabel>{reflections.length ? `${reflections.length} ENTRIES` : 'AN OPEN NOTEBOOK'}</ContentsLabel>{reflections.length ? reflections.map((item,i) => <article className="entry" key={item.slug}><span className="entry-number">{roman[i] ?? i+1}</span><div><h2><Link to={`/reflections/${item.slug}`}>{item.title}</Link></h2><p>{item.excerpt}</p></div><div className="entry-meta">{item.date && <span>{item.date}</span>}<Link to={`/reflections/${item.slug}`}>Read →</Link></div></article>) : <div className="empty-state"><h2>A space for my writing.</h2><p>Reflections will appear here as I add them.</p></div>}</>;
+  return <><PageHeading index="II" title="Reflections & writings" subtitle="On memory, belonging, faith, and the things that stay."/><p className="archive-intro">A collection of personal essays, poems, and questions I’m still sitting with.</p><ContentsLabel>{reflections.length} PIECES</ContentsLabel><ol className="reflection-archive">{reflections.map((item,i) => <li className="entry" key={item.slug}><span className="entry-number" aria-hidden="true">{i+1}</span><div><h2><Link to={`/reflections/${item.slug}`}>{item.title}</Link></h2><p>{item.excerpt}</p></div><div className="entry-meta"><span>Reflections & writings</span><Link to={`/reflections/${item.slug}`} aria-label={`Read ${item.title}`}>Read →</Link></div></li>)}</ol></>;
 }
-function Reflection() { const { pathname } = useLocation(); const item = reflections.find(r => `/reflections/${r.slug}` === pathname); return item ? <><Link className="label back-link" to="/reflections">← All reflections</Link><PageHeading index="II" title={item.title} subtitle={item.date ?? 'A reflection'}/><article className="reading-copy">{item.paragraphs.map((p,i) => <p key={i}>{p}</p>)}</article></> : <NotFound/>; }
+function InlineText({text}: {text:string}) {
+  return <>{text.split(/(\*\*\*[^*]+\*\*\*|\*\*[^*]+\*\*|\*[^*]+\*)/g).map((part,i) => part.startsWith('***') && part.endsWith('***') ? <strong key={i}><em>{part.slice(3,-3)}</em></strong> : part.startsWith('**') && part.endsWith('**') ? <strong key={i}>{part.slice(2,-2)}</strong> : part.startsWith('*') && part.endsWith('*') ? <em key={i}>{part.slice(1,-1)}</em> : <React.Fragment key={i}>{part}</React.Fragment>)}</>;
+}
+function WritingImage({src,alt}:{src:string;alt:string}) {
+  const [failed,setFailed] = useState(false);
+  return <figure className="writing-image">{failed ? <a className="image-fallback" href={src}>View the accompanying image ↗</a> : <a href={src}><img src={src} alt={alt} loading="lazy" onError={()=>setFailed(true)}/></a>}</figure>;
+}
+function Reflection() {
+  const {pathname} = useLocation();
+  const index = reflections.findIndex(r => `/reflections/${r.slug}` === pathname);
+  const item = reflections[index];
+  if(!item) return <NotFound/>;
+  const previous = reflections[index-1];
+  const next = reflections[index+1];
+  return <><Link className="label back-link" to="/reflections">← All reflections & writings</Link><div className="article-heading"><PageHeading index={String(index+1).padStart(2,'0')} title={item.title} subtitle={item.subtitle ?? ''}/><p className="article-byline">By <a href="https://substack.com/@mariam338">syeda mariam</a></p></div><article className="reading-copy reflection-body" aria-label={item.title}>{item.body.split(/\n\n+/).map((block,i) => {
+    const image = block.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if(image) return <WritingImage key={`${item.slug}-${i}`} alt={image[1]} src={image[2]}/>;
+    return <p key={i} dir="auto">{block.split('\n').map((line,j)=><React.Fragment key={j}>{j>0 && <br/>}<bdi dir="auto"><InlineText text={line}/></bdi></React.Fragment>)}</p>;
+  })}</article><nav className="reading-navigation" aria-label="Other writings">{previous ? <Link to={`/reflections/${previous.slug}`}><span>← Previous piece</span><strong>{previous.title}</strong></Link> : <Link to="/reflections"><span>← Return to the collection</span><strong>All reflections & writings</strong></Link>}{next && <Link to={`/reflections/${next.slug}`}><span>Next piece →</span><strong>{next.title}</strong></Link>}</nav></>;
+}
 function Photography() {
   return <><PageHeading index="III" title="Photography" subtitle="People, places, and pieces of life."/><div className="reading-copy"><p>{personalNotes.photography}</p><a className="underlined" href={links.photography}>View my photography on VSCO ↗</a></div>{photography.length > 0 && <div className="image-grid">{photography.map(photo => <figure key={photo.src}><a href={photo.src}><img src={photo.src} alt={photo.alt} loading="lazy"/></a><figcaption>{photo.title}{photo.caption && ` — ${photo.caption}`}</figcaption></figure>)}</div>}</>;
 }
@@ -39,7 +58,7 @@ function Contact() {
 function NotFound(){ return <div className="empty-state"><h1>Page not found.</h1><Link className="underlined" to="/">Back to About Me</Link></div>; }
 function App() {
   const location = useLocation();
-  useEffect(() => { window.scrollTo(0,0); const page = navigation.find(([path]) => path === location.pathname); document.title = `${page?.[1] ?? 'Reflections'} — ${personal.name}`; const main = document.getElementById('main'); if(main && location.key !== 'default') main.focus({preventScroll:true}); }, [location]);
+  useEffect(() => { window.scrollTo(0,0); const page = navigation.find(([path]) => path === location.pathname); const piece = reflections.find(item => `/reflections/${item.slug}` === location.pathname); document.title = `${piece?.title ?? page?.[1] ?? 'Page not found'} — ${personal.name}`; const main = document.getElementById('main'); if(main && location.key !== 'default') main.focus({preventScroll:true}); }, [location]);
   return <><a className="skip-link" href="#main">Skip to content</a><header className="site-header"><Link className="wordmark" to="/">Syeda Mariam Naqvi</Link><nav aria-label="Main navigation">{navigation.map(([path,label]) => <NavLink key={path} to={path} end={path === '/'}>{label}</NavLink>)}</nav></header><main id="main" tabIndex={-1}><Routes><Route path="/" element={<About/>}/><Route path="/graphics" element={<Graphics/>}/><Route path="/reflections" element={<Reflections/>}/><Route path="/reflections/:slug" element={<Reflection/>}/><Route path="/photography" element={<Photography/>}/><Route path="/cv" element={<CV/>}/><Route path="/projects" element={<Projects/>}/><Route path="/current-projects" element={<CurrentProjects/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<NotFound/>}/></Routes></main><footer><span>A personal collection by Syeda Mariam Naqvi</span><span>© {new Date().getFullYear()}</span></footer></>;
 }
 createRoot(document.getElementById('root')!).render(<React.StrictMode><BrowserRouter><App/></BrowserRouter></React.StrictMode>);

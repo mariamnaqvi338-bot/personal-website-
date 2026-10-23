@@ -1,6 +1,5 @@
-export type Reflection = { slug: string; title: string; date?: string; excerpt: string; paragraphs: string[] };
-export const reflections: Reflection[] = [];
-export const graphicWork = [{ title: 'The postcard business', category: 'Graphic design · Postcards', description: 'I previously ran a postcard business. This collection will bring together the designs and the story behind it.', images: [] as {src:string;alt:string;caption?:string}[] }];
+export { reflections } from './reflections';
+export const graphicWork = [{ title: 'mbymariam', category: 'Graphic design · Postcards', description: 'My former postcard business, mbymariam. This collection will bring together the designs and the story behind it.', images: [] as {src:string;alt:string;caption?:string}[] }];
 export const currentProjects = [{ title: 'Undergraduate thesis', category: 'In progress · Economics', description: 'My undergraduate thesis is in progress. The final topic has not yet been confirmed.' }];
 export const about = [
   'I’m Mariam, an Economics undergraduate at Forman Christian College University in Lahore, with a minor in Political Science. I expect to graduate in 2027.',

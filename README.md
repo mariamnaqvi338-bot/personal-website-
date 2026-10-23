@@ -14,16 +14,18 @@ npm run dev
 ## Content
 
 - `src/content/site.ts`: personal details, verified profile URLs, CV link, experience, research, skills, photography and personal quotations.
-- `src/content/portfolio.ts`: About Me text, graphic work, reflections and current projects.
-- Add a reflection with `slug`, `title`, optional `date`, `excerpt`, and `paragraphs`. It appears in the archive and gets its own `/reflections/slug` reading page.
-- Add original designs to `public/graphics/`, then add their path and alt text to the matching `graphicWork` entry's `images` array. No stock designs are used.
+- `src/content/portfolio.ts`: About Me text, graphic work and current projects; re-exports the reflections collection.
+- `src/content/reflections.ts`: the full writing archive. Entries use `slug`, `title`, optional `subtitle`, `excerpt`, and `body`. Keep the array order: Clean Slate is first. Do not add dates. Each entry gets `/reflections/slug`. Body supports paragraphs, line breaks, italic/bold emphasis, and image Markdown; HTML is rendered as text.
+- Add original designs to `public/graphics/`, then add their path and alt text to the matching `graphicWork` entry's `images` array. No stock designs are used. mbymariam is identified as a former business.
 - Add images to `public/photos/` and entries to `photography` in site.ts, or keep the existing external VSCO link.
 - A portrait file has not yet been provided as a downloadable asset. Set `personal.portrait` after adding the file to public.
 
-Awaiting content: postcard business name/details and original designs; full reflection texts; additional current-project descriptions; portrait attachment. The thesis is the only confirmed in-progress project, and its topic remains unconfirmed. Publication title is included without an invented publication URL.
+Awaiting content: further mbymariam business details and original postcard designs; additional current-project descriptions; portrait attachment. All 13 supplied reflections have been added, without publication dates. The thesis is the only confirmed in-progress project, and its topic remains unconfirmed. Publication title is included without an invented publication URL.
 
 ## Hosting
 
 Vercel: Vite preset, build `npm run build`, output `dist`. The included rewrite supports direct page links. Routes use BrowserRouter and assets use root paths; Vercel domain-root deployment is assumed. Existing CV PDF and exact user-provided profile URLs are preserved. Code can remain private. GitHub Pages workflow is manual-only and not used for Vercel production hosting.
 
 Fonts: Cormorant Garamond and IBM Plex Mono via Google Fonts (SIL Open Font License), with local fallbacks. No backend or secrets required.
+
+Writing images use the supplied Substack image assets, without duplicate image links or social engagement metadata. Network policy blocked local image downloads during setup; failed browser images display an explicit link fallback. Upload original image files to self-host them later.
