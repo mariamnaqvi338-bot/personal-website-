@@ -1,35 +1,83 @@
-# Syeda Mariam Naqvi — personal portfolio
+# Syeda Mariam Naqvi
 
-Seven separate pages: About Me, Graphics & Postcards, Reflections, Photography, CV, Projects, and Contact. The former /current-projects route redirects to /projects. Warm paper, serif typography, small monospaced labels, and editorial lists inspired by the supplied screenshots.
+My personal corner of the internet: photographs, reflections, research, graphic work, and a little about the person behind them.
 
-## Run
+**[Visit the website](https://personal-site-pi-ten-71.vercel.app/)**
+
+## Inside
+
+- **About Me** — a personal introduction.
+- **Graphics & Postcards** — a growing archive of graphic work and my former postcard business, **mbymariam**.
+- **Reflections** — thirteen essays and poems, each with its own reading page.
+- **Photography** — selected photographs, with links to my VSCO account and portfolio.
+- **CV** — education, experience, projects, technical skills, and activities, with a downloadable PDF.
+- **Projects** — selected research and analytical work.
+- **Contact** — email and profile links.
+
+The design uses a warm paper background, serif typography, and a restrained editorial layout.
+
+## Running locally
+
+Requires Node.js 22 or newer and npm.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-`npm run build` checks TypeScript and creates `dist/`. `npm run preview` serves the production build.
+To check and build the production version:
 
-## Content
+```sh
+npm run build
+npm run preview
+```
 
-- `src/content/site.ts`: personal details, verified profile URLs, CV link, experience, research, skills, photography and personal quotations.
-- `src/content/portfolio.ts`: About Me text, graphic work and current projects; re-exports the reflections collection.
-- `src/content/reflections.ts`: the full writing archive. Entries use `slug`, `title`, optional `subtitle`, `excerpt`, and `body`. Keep the array order: Clean Slate is first. Do not add dates. Each entry gets `/reflections/slug`. Body supports paragraphs, line breaks, italic/bold emphasis, and image Markdown; HTML is rendered as text.
-- Add original designs to `public/graphics/`, then add their path and alt text to the matching `graphicWork` entry's `images` array. No stock designs are used. mbymariam is identified as a former business.
-- Add images to `public/photos/` and entries to `photography` in site.ts, or keep the existing external VSCO link.
-- The supplied portrait is stored in `public/portrait.png` and configured in `personal.portrait`.
+The production files are generated in `dist/`.
 
-Awaiting content: further mbymariam business details and original postcard designs; additional current-project descriptions. All 13 supplied reflections have been added, without publication dates. The thesis is the only confirmed in-progress project, and its topic remains unconfirmed. Publication title is included without an invented publication URL.
+## Updating the website
 
-## Hosting
+| What to update | Where to find it |
+| --- | --- |
+| About Me and postcard collection | `src/content/portfolio.ts` |
+| Full reflections and their order | `src/content/reflections.ts` |
+| Experience, projects, profile links, and photography entries | `src/content/site.ts` |
+| Page layouts and navigation | `src/main.tsx` |
+| Fonts, colours, spacing, and responsive layout | `src/style.css` |
+| Gallery image files | `public/photos/` |
+| Portrait | `public/portrait.png` |
+| Downloadable CV | `public/Mariam-Naqvi-CV.pdf` |
 
-Vercel: Vite preset, build `npm run build`, output `dist`. The included rewrite supports direct page links. Routes use BrowserRouter and assets use root paths; Vercel domain-root deployment is assumed. Existing CV PDF and exact user-provided profile URLs are preserved. Code can remain private. GitHub Pages workflow is manual-only and not used for Vercel production hosting.
+### Adding a reflection
 
-Fonts: Cormorant Garamond and IBM Plex Mono via Google Fonts (SIL Open Font License), with local fallbacks. No backend or secrets required.
+Add an entry to `src/content/reflections.ts` with a unique `slug`, `title`, optional `subtitle`, short `excerpt`, and full `body`. It will appear automatically in the numbered archive and at `/reflections/your-slug`.
 
-Writing images use the supplied Substack image assets, without duplicate image links or social engagement metadata. Network policy blocked local image downloads during setup; failed browser images display an explicit link fallback. Upload original image files to self-host them later.
+Use a blank line between paragraphs and a single line break for poetry. Italic and bold emphasis and image Markdown are supported. Publication dates are intentionally omitted. **Clean Slate** stays first in the collection.
 
-Photography: 16 original JPEGs from the supplied ZIP are stored in public/photos and referenced in site.ts. Their aspect ratios, colours, and source image quality are preserved. Width/height metadata reserves layout space; tiles lazy-load and link to full images.
+### Adding photographs or postcard designs
 
-Page layouts use wider desktop gutters throughout. About Me has a portrait sidebar and continuous text, with no newspaper columns. Mobile stacks the content without horizontal scrolling.
+Save original image files under `public/photos/` or `public/graphics/`, then add their paths and descriptive alt text to the matching content array. Gallery tiles preserve image proportions and load lazily. Keep personal location metadata out of images if you do not want it published.
+
+### Replacing the CV
+
+Replace `public/Mariam-Naqvi-CV.pdf`, keeping the filename unchanged. The existing download link will then serve the updated file after deployment. Review the PDF for private information before uploading; the current public copy omits the private phone number.
+
+## Deployment
+
+The website is hosted on **Vercel**, connected to this private GitHub repository. Pushes to the connected production branch trigger a deployment.
+
+- Framework: **Vite**
+- Build command: `npm run build`
+- Output directory: `dist`
+- Environment variables: none required
+
+`vercel.json` supports direct links to individual pages. The optional GitHub Pages workflow is manual-only and is separate from Vercel hosting.
+
+## Built with
+
+React, TypeScript, Vite, and CSS. Fonts are Cormorant Garamond and IBM Plex Mono, loaded from Google Fonts under the SIL Open Font License, with system fallbacks.
+
+Some reflection images are hosted on Substack. If an image cannot load, the page provides a link to it. These can be replaced with locally hosted files later.
+
+---
+
+© Syeda Mariam Naqvi. All rights reserved. Please do not reuse writing, photographs, or designs without permission.
