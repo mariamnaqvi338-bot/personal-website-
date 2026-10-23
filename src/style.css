@@ -5,8 +5,8 @@
   --rule: #dfd8c9;
   --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --mono: 'IBM Plex Mono', 'Courier New', monospace;
-  --heading-size: 24px;
-  --body-size: 18px;
+  --heading-size: 20px;
+  --body-size: 14px;
   font-family: var(--serif);
   font-size: var(--body-size);
   line-height: 1.55;
@@ -180,7 +180,7 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 20px
 }
 .reflections-page .reflection-body p,
 .reflections-page .reflection-body p[dir=auto] {
-  font-size: 16px;
+  font-size: var(--body-size);
   line-height: 1.35;
   text-align: center;
   margin-bottom: 12px;
@@ -197,11 +197,11 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 20px
 }
 .reflections-page .reading-navigation span { margin-bottom: 2px; }
 .reflections-page .reading-navigation strong {
-  font-size: 16px;
+  font-size: var(--body-size);
   line-height: 1.35;
 }
 .article-heading .page-heading { padding: 14px 0 4px; }
-.article-byline { font-size: 16px; line-height: 1.35; margin-bottom: 16px; }
+.article-byline { font-size: var(--body-size); line-height: 1.35; margin-bottom: 16px; }
 .reflections-page .writing-image { margin: 16px auto; }
 .reflections-page .writing-image img { max-height: 340px; }
 .contact-page .page-heading { padding-bottom: 10px; }
@@ -211,7 +211,7 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 20px
   text-align: center;
 }
 .contact-page .reading-copy p {
-  font-size: 16px;
+  font-size: var(--body-size);
   line-height: 1.35;
   margin-bottom: 8px;
 }
@@ -226,3 +226,21 @@ footer {
   gap: 6px 18px;
   padding-block: 14px 20px;
 }
+
+/* Shared final type scale and compact spacing across all pages. */
+.page-heading { padding: 18px 0 14px; }
+.page-heading h1 { margin: 6px 0 3px; }
+.about-story h2 { padding-bottom: 8px; margin-bottom: 10px; }
+.about-story p { margin-bottom: 10px; }
+.cv-copy > section { padding: 12px 0; }
+.cv-copy h2 { margin-bottom: 5px; }
+.cv-copy article { margin: 10px 0; }
+.cv-copy article > p:first-child { margin-bottom: 3px; }
+.cv-copy .cv-meta { margin-bottom: 4px; }
+.cv-copy ul { margin: 4px 0 8px; }
+.entry { padding-block: 16px; }
+.entry h2 { margin-bottom: 4px; }
+.contents-label { margin-block: 12px 14px; }
+.archive-intro { margin-bottom: 16px; }
+.reading-navigation strong { font-size: var(--heading-size); }
+.contact-page .page-heading { padding-bottom: 6px; }
