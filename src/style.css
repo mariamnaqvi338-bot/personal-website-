@@ -271,3 +271,5 @@ footer {
 .about-profile .portrait-arrow path{stroke-width:2;vector-effect:non-scaling-stroke}
 .about-profile .portrait-arrow .arrow-tip{fill:var(--ink);stroke:none}
 @media(max-width:700px){.about-profile{position:relative}}
+
+.portrait-signature{padding-top:6px}.portrait-signature h1{margin:0}
