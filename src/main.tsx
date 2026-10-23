@@ -1,94 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { personal, links, selectedResearch, personalNotes } from './content/site';
+import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
+import { personal, links, personalNotes, selectedResearch, experience, skills, leadership, photography } from './content/site';
+import { about, graphicWork, currentProjects, reflections } from './content/portfolio';
 import './style.css';
 
-function App() {
-  return (
-    <>
-      <a className="skip-link" href="#main">Skip to content</a>
-      <header>
-        <div className="header-inner">
-        <a className="site-name" href="#home">{personal.name}</a>
-        <nav aria-label="Main navigation">
-          <a href="#home">Home</a>
-          <a href="#research">Research</a>
-          <a href="#background">Background</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        </div>
-      </header>
-      <main id="main">
-        <section id="home" aria-labelledby="home-title">
-          <div className="hero-inner">
-          <div className="introduction">
-          <h1 id="home-title">{personal.name}</h1>
-          <p className="role">Undergraduate Student in Economics<br />Forman Christian College University, Lahore</p>
-          <p>I am pursuing a BSc (Hons) in Economics with a minor in Political Science at Forman Christian College University, Lahore, with expected graduation in 2027. My research interests include development economics, education policy, gender, labour economics, and applied research.</p>
-          <p>I am particularly interested in the role of household economic conditions, social norms, and public institutions in shaping educational access and economic opportunity.</p>
-          <p className="home-links"><a href={`mailto:${personal.email}`}>Email</a><a href={links.cv}>CV</a></p>
-          <p className="profile-links"><a href={links.github}>GitHub</a><a href={links.linkedin}>LinkedIn</a></p>
-          </div>
-          {personal.portrait && <img className="portrait" src={personal.portrait} alt="Syeda Mariam Naqvi" />}
-          </div>
-        </section>
-        <div className="content-grid">
-          <div className="main-column">
-            <section id="research" aria-labelledby="research-title">
-              <h2 id="research-title">Selected research</h2>
-              <ol className="research-list">
-                {selectedResearch.map(item => (
-                  <li key={item.title}>
-                    <h3>{item.title}</h3>
-                    <p><em>{item.label}</em></p>
-                    <p>{item.description}</p>
-                  </li>
-                ))}
-              </ol>
-            </section>
-            <section aria-labelledby="beyond-title">
-              <h2 id="beyond-title">Beyond research</h2>
-              <p>{personalNotes.photography}</p>
-              <p><a href={links.photography}>Photography</a></p>
-              <p className="personal-note">{personalNotes.reading}</p>
-            </section>
-            <section id="cv" aria-labelledby="cv-title">
-              <h2 id="cv-title">CV</h2>
-              <p>For my education, research experience, teaching, and technical skills, you can <a href={links.cv}>download my CV (PDF)</a>.</p>
-            </section>
-          </div>
-          <aside aria-label="Background, affiliations and contact">
-            <section id="background" aria-labelledby="background-title">
-              <h2 id="background-title">Background</h2>
-              <ul className="side-list">
-                <li>BSc (Hons) Economics, Minor in Political Science, Forman Christian College University. Expected graduation: 2027. CGPA: 3.56/4.00.</li>
-                <li>Analytics Intern, Centre for Economic Research in Pakistan (CERP), June–September 2026.</li>
-                <li>Teaching Assistant, Department of Political Science, FCCU, September 2025–June 2026.</li>
-              </ul>
-            </section>
-            <section aria-labelledby="affiliations-title">
-              <h2 id="affiliations-title">Affiliations</h2>
-              <ul className="side-list">
-                <li>Co-Founder & Researcher, Young Economists Initiative<br />July 2025–present</li>
-                <li>Undergraduate Student in Economics, Forman Christian College University</li>
-              </ul>
-            </section>
-            <section id="contact" aria-labelledby="contact-title">
-              <h2 id="contact-title">Contact</h2>
-              <p><a href={`mailto:${personal.email}`}>{personal.email}</a><br />Forman Christian College University<br />{personal.location}</p>
-            </section>
-          </aside>
-        </div>
-      </main>
-      <footer>
-        <div className="footer-inner">
-          <div><strong>{personal.name}</strong><p>Undergraduate Student in Economics<br />Forman Christian College University</p></div>
-          <div><a href={`mailto:${personal.email}`}>{personal.email}</a><p>{personal.location}</p></div>
-          <div><a href={links.cv}>CV</a><p>© {new Date().getFullYear()} {personal.name}</p></div>
-        </div>
-      </footer>
-    </>
-  );
+const navigation = [['/', 'About Me'], ['/graphics', 'Graphics & Postcards'], ['/reflections', 'Reflections'], ['/photography', 'Photography'], ['/cv', 'CV'], ['/projects', 'Projects'], ['/current-projects', 'Current Projects'], ['/contact', 'Contact']] as const;
+const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+function PageHeading({ index, title, subtitle }: { index: string; title: string; subtitle: string }) {
+  return <div className="page-heading"><p className="label">{index} / A PERSONAL COLLECTION</p><h1>{title}</h1><p className="subtitle">{subtitle}</p></div>;
 }
-
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);
+function ContentsLabel({ children }: { children: React.ReactNode }) { return <div className="contents-label"><span>Contents</span><span className="dotted-line"/><span>{children}</span></div>; }
+function About() {
+  return <><div className="about-heading"><p className="label">LAHORE, PAKISTAN</p><h1>Syeda Mariam<br /><em>Naqvi</em></h1><p className="subtitle">A little about me.</p></div><div className="about-copy">{personal.portrait && <img className="portrait" src={personal.portrait} alt="Syeda Mariam Naqvi"/>}{about.map(p => <p key={p}>{p}</p>)}<p className="personal-thought">{personalNotes.reading}</p></div></>;
+}
+function Graphics() {
+  return <><PageHeading index="I" title="Graphics & postcards" subtitle="Things made to be seen, held, and sent."/><ContentsLabel>GRAPHIC WORK</ContentsLabel>{graphicWork.map((item, i) => <article className="entry" key={item.title}><span className="entry-number">{roman[i] ?? i + 1}</span><div><h2>{item.title}</h2><p>{item.description}</p>{item.images.length > 0 && <div className="image-grid">{item.images.map(image => <figure key={image.src}><img src={image.src} alt={image.alt} loading="lazy"/>{image.caption && <figcaption>{image.caption}</figcaption>}</figure>)}</div>}<p className="quiet-note">Designs and further details will be added to this collection.</p></div><span className="entry-meta">{item.category}</span></article>)}</>;
+}
+function Reflections() {
+  return <><PageHeading index="II" title="Reflections" subtitle="Thoughts worked out on the page."/><ContentsLabel>{reflections.length ? `${reflections.length} ENTRIES` : 'AN OPEN NOTEBOOK'}</ContentsLabel>{reflections.length ? reflections.map((item,i) => <article className="entry" key={item.slug}><span className="entry-number">{roman[i] ?? i+1}</span><div><h2><Link to={`/reflections/${item.slug}`}>{item.title}</Link></h2><p>{item.excerpt}</p></div><div className="entry-meta">{item.date && <span>{item.date}</span>}<Link to={`/reflections/${item.slug}`}>Read →</Link></div></article>) : <div className="empty-state"><h2>A space for my writing.</h2><p>Reflections will appear here as I add them.</p></div>}</>;
+}
+function Reflection() { const { pathname } = useLocation(); const item = reflections.find(r => `/reflections/${r.slug}` === pathname); return item ? <><Link className="label back-link" to="/reflections">← All reflections</Link><PageHeading index="II" title={item.title} subtitle={item.date ?? 'A reflection'}/><article className="reading-copy">{item.paragraphs.map((p,i) => <p key={i}>{p}</p>)}</article></> : <NotFound/>; }
+function Photography() {
+  return <><PageHeading index="III" title="Photography" subtitle="People, places, and pieces of life."/><div className="reading-copy"><p>{personalNotes.photography}</p><a className="underlined" href={links.photography}>View my photography on VSCO ↗</a></div>{photography.length > 0 && <div className="image-grid">{photography.map(photo => <figure key={photo.src}><a href={photo.src}><img src={photo.src} alt={photo.alt} loading="lazy"/></a><figcaption>{photo.title}{photo.caption && ` — ${photo.caption}`}</figcaption></figure>)}</div>}</>;
+}
+function CV() {
+  return <><PageHeading index="IV" title="Curriculum vitae" subtitle="Education, research, and experience."/><p className="download"><a className="underlined" href={links.cv}>Download my CV (PDF) ↓</a></p><div className="cv-copy"><section><h2>Education</h2><h3>Forman Christian College University</h3><p>BSc (Hons) Economics · Minor in Political Science<br/>2023–2027 (expected) · CGPA: 3.56/4.00</p></section><section><h2>Research & teaching experience</h2>{experience.map(item => <article key={item.organization}><h3>{item.organization}</h3><p className="cv-meta">{item.role} · {item.date}</p><p>{item.description}</p><ul>{item.details.map(detail => <li key={detail}>{detail}</li>)}</ul></article>)}</section><section><h2>Selected projects & writing</h2>{selectedResearch.slice(1).map(item => <article key={item.title}><h3>{item.title}</h3><p className="cv-meta">{item.label}</p><p>{item.description}</p></article>)}</section><section><h2>Technical skills</h2><p>{skills.join('; ')}.</p></section><section><h2>Honours & activities</h2><p>Vice Rector’s List · Forman Christian College</p><ul>{leadership.map(item => <li key={item}>{item}</li>)}</ul></section></div></>;
+}
+function Projects() {
+  return <><PageHeading index="V" title="Projects" subtitle="Research, questions, and work in practice."/><ContentsLabel>{selectedResearch.length} SELECTED ENTRIES</ContentsLabel>{selectedResearch.map((item,i) => <article className="entry" key={item.title}><span className="entry-number">{roman[i] ?? i+1}</span><div><h2>{item.title}</h2><p>{item.description}</p></div><span className="entry-meta">{item.label}</span></article>)}</>;
+}
+function CurrentProjects() {
+  return <><PageHeading index="VI" title="Current projects" subtitle="Work still taking shape."/><ContentsLabel>IN PROGRESS</ContentsLabel>{currentProjects.map((item,i) => <article className="entry" key={item.title}><span className="entry-number">{roman[i] ?? i+1}</span><div><h2>{item.title}</h2><p>{item.description}</p></div><span className="entry-meta">{item.category}</span></article>)}</>;
+}
+function Contact() {
+  return <><PageHeading index="VII" title="Contact me" subtitle="For a conversation, a question, or something we could make together."/><div className="reading-copy"><p>I’m happy to hear from you about research, writing, photography, design, or collaboration.</p><p><a className="contact-email" href={`mailto:${personal.email}`}>{personal.email}</a></p><p className="quiet-note">{personal.location}</p><div className="contact-links"><a href={links.linkedin}>LinkedIn ↗</a><a href={links.github}>GitHub ↗</a><a href={links.photography}>Photography ↗</a></div></div></>;
+}
+function NotFound(){ return <div className="empty-state"><h1>Page not found.</h1><Link className="underlined" to="/">Back to About Me</Link></div>; }
+function App() {
+  const location = useLocation();
+  useEffect(() => { window.scrollTo(0,0); const page = navigation.find(([path]) => path === location.pathname); document.title = `${page?.[1] ?? 'Reflections'} — ${personal.name}`; const main = document.getElementById('main'); if(main && location.key !== 'default') main.focus({preventScroll:true}); }, [location]);
+  return <><a className="skip-link" href="#main">Skip to content</a><header className="site-header"><Link className="wordmark" to="/">Syeda Mariam Naqvi</Link><nav aria-label="Main navigation">{navigation.map(([path,label]) => <NavLink key={path} to={path} end={path === '/'}>{label}</NavLink>)}</nav></header><main id="main" tabIndex={-1}><Routes><Route path="/" element={<About/>}/><Route path="/graphics" element={<Graphics/>}/><Route path="/reflections" element={<Reflections/>}/><Route path="/reflections/:slug" element={<Reflection/>}/><Route path="/photography" element={<Photography/>}/><Route path="/cv" element={<CV/>}/><Route path="/projects" element={<Projects/>}/><Route path="/current-projects" element={<CurrentProjects/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<NotFound/>}/></Routes></main><footer><span>A personal collection by Syeda Mariam Naqvi</span><span>© {new Date().getFullYear()}</span></footer></>;
+}
+createRoot(document.getElementById('root')!).render(<React.StrictMode><BrowserRouter><App/></BrowserRouter></React.StrictMode>);

@@ -1,6 +1,6 @@
-# Syeda Mariam Naqvi
+# Syeda Mariam Naqvi — personal portfolio
 
-A simple, single-page personal website with Home, selected research, CV, Background, Affiliations, and Contact Me sections. Academic layout with a blush introduction, plum links, Newsreader headings, and Public Sans body text. Built with React, TypeScript, and Vite.
+Eight separate pages: About Me, Graphics & Postcards, Reflections, Photography, CV, Projects, Current Projects, and Contact. Warm paper, serif typography, small monospaced labels, and editorial lists inspired by the supplied screenshots.
 
 ## Run
 
@@ -9,18 +9,21 @@ npm ci
 npm run dev
 ```
 
-`npm run build` checks TypeScript and generates the production site in `dist/`. `npm run preview` serves that build locally.
+`npm run build` checks TypeScript and creates `dist/`. `npm run preview` serves the production build.
 
-## Update
+## Content
 
-Edit the page in `src/main.tsx`, the content (including `links`, `selectedResearch`, and `personalNotes`) in `src/content/site.ts`, and styling in `src/style.css`. The CV download is `public/Mariam-Naqvi-CV.pdf`; the private phone number was removed from this copy. Content arrays for the earlier design are retained in the content file but are not displayed.
+- `src/content/site.ts`: personal details, verified profile URLs, CV link, experience, research, skills, photography and personal quotations.
+- `src/content/portfolio.ts`: About Me text, graphic work, reflections and current projects.
+- Add a reflection with `slug`, `title`, optional `date`, `excerpt`, and `paragraphs`. It appears in the archive and gets its own `/reflections/slug` reading page.
+- Add original designs to `public/graphics/`, then add their path and alt text to the matching `graphicWork` entry's `images` array. No stock designs are used.
+- Add images to `public/photos/` and entries to `photography` in site.ts, or keep the existing external VSCO link.
+- A portrait file has not yet been provided as a downloadable asset. Set `personal.portrait` after adding the file to public.
 
-## Deploy
+Awaiting content: postcard business name/details and original designs; full reflection texts; additional current-project descriptions; portrait attachment. The thesis is the only confirmed in-progress project, and its topic remains unconfirmed. Publication title is included without an invented publication URL.
 
-On Vercel, import the private GitHub repository and choose the Vite preset. Build command: `npm run build`. Output directory: `dist`. Pushes to the connected production branch trigger updates automatically. No secrets, backend, or environment variables are needed. The repository can stay private while the website is public.
+## Hosting
 
-GitHub Pages requires a supported plan for private repositories; the included Pages workflow does not overcome that restriction. It is manual-only so pushes do not trigger failing Pages deployments. Production hosting uses the separate Vercel Git integration.
+Vercel: Vite preset, build `npm run build`, output `dist`. The included rewrite supports direct page links. Routes use BrowserRouter and assets use root paths; Vercel domain-root deployment is assumed. Existing CV PDF and exact user-provided profile URLs are preserved. Code can remain private. GitHub Pages workflow is manual-only and not used for Vercel production hosting.
 
-Fonts are loaded from Google Fonts (Newsreader and Public Sans, SIL Open Font License), with system fallbacks.
-
-The public CV link and profile URLs are the exact addresses supplied by Mariam. The bundled PDF remains available as a local copy. No publication URL was supplied for Trapped by Honour, so its title is plain text.
+Fonts: Cormorant Garamond and IBM Plex Mono via Google Fonts (SIL Open Font License), with local fallbacks. No backend or secrets required.
