@@ -18,9 +18,9 @@ npm run dev
 - `src/content/reflections.ts`: the full writing archive. Entries use `slug`, `title`, optional `subtitle`, `excerpt`, and `body`. Keep the array order: Clean Slate is first. Do not add dates. Each entry gets `/reflections/slug`. Body supports paragraphs, line breaks, italic/bold emphasis, and image Markdown; HTML is rendered as text.
 - Add original designs to `public/graphics/`, then add their path and alt text to the matching `graphicWork` entry's `images` array. No stock designs are used. mbymariam is identified as a former business.
 - Add images to `public/photos/` and entries to `photography` in site.ts, or keep the existing external VSCO link.
-- A portrait file has not yet been provided as a downloadable asset. Set `personal.portrait` after adding the file to public.
+- The supplied portrait is stored in `public/portrait.png` and configured in `personal.portrait`.
 
-Awaiting content: further mbymariam business details and original postcard designs; additional current-project descriptions; portrait attachment. All 13 supplied reflections have been added, without publication dates. The thesis is the only confirmed in-progress project, and its topic remains unconfirmed. Publication title is included without an invented publication URL.
+Awaiting content: further mbymariam business details and original postcard designs; additional current-project descriptions. All 13 supplied reflections have been added, without publication dates. The thesis is the only confirmed in-progress project, and its topic remains unconfirmed. Publication title is included without an invented publication URL.
 
 ## Hosting
 
@@ -31,3 +31,5 @@ Fonts: Cormorant Garamond and IBM Plex Mono via Google Fonts (SIL Open Font Lice
 Writing images use the supplied Substack image assets, without duplicate image links or social engagement metadata. Network policy blocked local image downloads during setup; failed browser images display an explicit link fallback. Upload original image files to self-host them later.
 
 Photography: 16 original JPEGs from the supplied ZIP are stored in public/photos and referenced in site.ts. Their aspect ratios, colours, and source image quality are preserved. Width/height metadata reserves layout space; tiles lazy-load and link to full images.
+
+Page layouts use wider desktop gutters throughout. About Me has a portrait sidebar and continuous text, with no newspaper columns. Mobile stacks the content without horizontal scrolling.
