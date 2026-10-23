@@ -260,3 +260,7 @@ footer {
 .portrait-arrow path{stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .portrait-arrow .arrow-tip{fill:var(--ink);stroke:none}
 @media(max-width:700px){.portrait-arrow{width:90px;height:55px;right:5px;top:-35px}}
+
+/* Anchor the arrow over the portrait, with the tip inside the subject area. */
+.portrait-arrow{width:34%;height:auto;right:10%;top:auto;bottom:20px;transform:none;overflow:visible;z-index:1}
+@media(max-width:700px){.portrait-arrow{width:24%;right:24%;bottom:20px}}
