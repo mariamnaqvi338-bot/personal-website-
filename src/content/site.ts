@@ -16,8 +16,153 @@ export const projects = [
 ];
 export const publications: {title:string;status:string;url?:string}[] = [];
 export const writing = [{title:'Trapped by Honour: Barriers to Girls’ Education in Pakistan',category:'Research',date:'',description:'A policy analysis examining how patriarchal norms and honour-based practices restrict girls’ education and contribute to wider socio-economic inequality.',status:'Research article · publication details unconfirmed',body:'',url:''}];
-export type Photo = {src:string;title:string;caption:string;collection:string;alt:string;date?:string;location?:string};
-export const photography: Photo[] = [];
+export type Photo = {src:string;title:string;caption:string;collection:string;alt:string;date?:string;location?:string;width?:number;height?:number};
+export const photography: Photo[] = [
+  {
+    "src": "/photos/mariam-8817.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A shaded market passage with green and blue bunting, pedestrians, and motorcycles.",
+    "width": 1535,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8826.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "Children and an adult walking through a narrow brick alley beneath hanging decorations.",
+    "width": 1535,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8827.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "Weathered yellow balconies beneath a leafy tree and overhead wires.",
+    "width": 1535,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8840.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "Two people beneath a red umbrella in front of an illuminated wooden facade at night.",
+    "width": 1187,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8839.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A market stall displaying brightly coloured patterned scarves and textiles.",
+    "width": 1536,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8823.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "An upward view of an old building with rows of wooden balconies and windows.",
+    "width": 1535,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8820.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A black-and-white photograph of a narrow alley lined with buildings and overhead wires.",
+    "width": 1535,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8818.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A black-and-white upward view between closely spaced buildings and wooden balconies.",
+    "width": 1535,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8829.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A black-and-white street gathering beneath hanging cloth and balconies.",
+    "width": 1535,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8828.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A black-and-white photograph of two motorcycle riders reaching across to hold hands.",
+    "width": 1535,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8830.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A black-and-white view of balconies, a street lamp, and wires overhead.",
+    "width": 1170,
+    "height": 2036
+  },
+  {
+    "src": "/photos/mariam-8831.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A crowd gathered below red wooden balconies and black banners with Urdu lettering.",
+    "width": 1388,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8832.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A person resting in the open bed of a green vehicle beside large white sacks.",
+    "width": 1873,
+    "height": 2048
+  },
+  {
+    "src": "/photos/mariam-8833.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A black-and-white view from a vehicle of people walking beside cattle.",
+    "width": 750,
+    "height": 893
+  },
+  {
+    "src": "/photos/mariam-8834.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "People and traffic passing beneath a large red-brick gateway.",
+    "width": 750,
+    "height": 977
+  },
+  {
+    "src": "/photos/mariam-8841.jpg",
+    "title": "",
+    "caption": "",
+    "collection": "Selected photographs",
+    "alt": "A person seated beneath trees and street lights in the evening.",
+    "width": 750,
+    "height": 1334
+  }
+];
 export type Book = {title:string;author:string;status:'Currently reading'|'Recently read'|'On my reading list';cover?:string;started?:string;finished?:string;subject?:string;rating?:number;reflection?:string;url?:string};
 export const books: Book[] = [];
 export const readingNotes: {title:string;book:string;text:string}[] = [];

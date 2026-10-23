@@ -29,3 +29,5 @@ Vercel: Vite preset, build `npm run build`, output `dist`. The included rewrite 
 Fonts: Cormorant Garamond and IBM Plex Mono via Google Fonts (SIL Open Font License), with local fallbacks. No backend or secrets required.
 
 Writing images use the supplied Substack image assets, without duplicate image links or social engagement metadata. Network policy blocked local image downloads during setup; failed browser images display an explicit link fallback. Upload original image files to self-host them later.
+
+Photography: 16 original JPEGs from the supplied ZIP are stored in public/photos and referenced in site.ts. Their aspect ratios, colours, and source image quality are preserved. Width/height metadata reserves layout space; tiles lazy-load and link to full images.
