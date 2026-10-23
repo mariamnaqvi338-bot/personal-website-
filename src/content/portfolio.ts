@@ -132,25 +132,29 @@ export const postcardCollections: PostcardCollection[] = [
         "src": "/graphics/last/3.png",
         "alt": "A Pakistan postcard with green typography and a collage of black-and-white archival scenes.",
         "width": 1429,
-        "height": 2000
+        "height": 2000,
+        "caption": "Pakistan."
       },
       {
         "src": "/graphics/last/5.png",
         "alt": "An illustrated Allama Iqbal postcard with black Urdu calligraphy over repeated Urdu text.",
         "width": 1429,
-        "height": 2000
+        "height": 2000,
+        "caption": "Allama Iqbal — sitaron se aagay jahan aur bhi hain, abhi ishq ke imtihan aur bhi hain."
       },
       {
         "src": "/graphics/last/6.png",
         "alt": "A black postcard featuring a seated portrait of Allama Iqbal and Urdu calligraphy.",
         "width": 1429,
-        "height": 2000
+        "height": 2000,
+        "caption": "Allama Iqbal — sitaron se aagay jahan aur bhi hain, abhi ishq ke imtihan aur bhi hain."
       },
       {
         "src": "/graphics/last/fsdf.png",
         "alt": "A patterned postcard with pixel-art watermelon slices and the repeated words From River to the Sea.",
         "width": 1429,
-        "height": 2000
+        "height": 2000,
+        "caption": "From the river to the sea, Palestine will be free!!"
       }
     ]
   }
