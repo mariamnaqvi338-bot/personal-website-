@@ -284,3 +284,15 @@ footer {
 .contact-page .reading-copy>p:first-child{margin-bottom:24px}
 .contact-page .contact-links{margin-top:26px;gap:14px 32px;line-height:1.8}
 @media(max-width:700px){.contact-page .page-heading{padding:24px 0 20px}.contact-page .contact-links{gap:14px 24px}}
+
+.postcard-intro{max-width:900px;text-align:center;margin:0 auto 28px}
+.postcard-collection{padding:26px 0;border-top:1px solid var(--rule)}
+.postcard-collection>h2{text-align:center;margin-bottom:20px}
+.postcard-tiles{columns:3;column-gap:20px}
+.postcard-tiles figure{break-inside:avoid;margin:0 0 20px}
+.postcard-tiles a,.postcard-tiles img{display:block;width:100%}
+.postcard-tiles img{height:auto}
+.postcard-caption{text-align:center;margin:12px 0 0}
+.postcard-pending{text-align:center}
+@media(max-width:900px){.postcard-tiles{columns:2}}
+@media(max-width:480px){.postcard-tiles{columns:1}}

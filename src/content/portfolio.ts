@@ -16,3 +16,7 @@ export const about = [
   "a little bit of everything, constantly thinking, occasionally creating, perpetually doubting, and trying to make something meaningful out of this rather strange business of being alive.",
   "and this website? yet another way of channelling my inner child, who is probably very pleased that, okay, i know how to make websites now too. it's also a little exercise in putting myself out there. the photographs, the writing, the work, the doubts, all these different sides of me, sharing one small corner of the internet. a whole lot of self-exposure, apparently. but here we are."
 ];
+
+export type PostcardImage = { src: string; alt: string; width?: number; height?: number };
+export type PostcardCollection = { title: string; caption: string; images: PostcardImage[] };
+export const postcardCollections: PostcardCollection[] = [];
