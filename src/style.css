@@ -244,3 +244,6 @@ footer {
 .archive-intro { margin-bottom: 16px; }
 .reading-navigation strong { font-size: var(--heading-size); }
 .contact-page .page-heading { padding-bottom: 6px; }
+
+.about-profile h1{margin:12px 0 0;text-align:center}
+@media(max-width:700px){.about-profile{display:flex;flex-direction:column;align-items:center;gap:0}.profile-photo{width:180px;max-width:100%}.about-profile h1{margin-top:10px}}
