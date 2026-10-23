@@ -7,8 +7,8 @@ import './style.css';
 
 const navigation = [['/', 'About Me'], ['/graphics', 'Graphics & Postcards'], ['/reflections', 'Reflections'], ['/photography', 'Photography'], ['/cv', 'CV'], ['/projects', 'Projects'], ['/contact', 'Contact']] as const;
 const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
-function PageHeading({ index, title, subtitle }: { index: string; title: string; subtitle: string }) {
-  return <div className="page-heading"><p className="label">{index} / A PERSONAL COLLECTION</p><h1>{title}</h1><p className="subtitle" dir="auto">{subtitle}</p></div>;
+function PageHeading({ title, subtitle }: { index: string; title: string; subtitle: string }) {
+  return <div className="page-heading"><h1>{title}</h1><p className="subtitle" dir="auto">{subtitle}</p></div>;
 }
 function ContentsLabel({ children }: { children: React.ReactNode }) { return <div className="contents-label"><span>Contents</span><span className="dotted-line"/><span>{children}</span></div>; }
 function About() {
