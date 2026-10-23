@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { personal, links, personalNotes, selectedResearch, experience, skills, leadership, photography } from './content/site';
-import { about, graphicWork, currentProjects, reflections } from './content/portfolio';
+import { about, aboutHeading, graphicWork, currentProjects, reflections } from './content/portfolio';
 import './style.css';
 
 const navigation = [['/', 'About Me'], ['/graphics', 'Graphics & Postcards'], ['/reflections', 'Reflections'], ['/photography', 'Photography'], ['/cv', 'CV'], ['/projects', 'Projects'], ['/current-projects', 'Current Projects'], ['/contact', 'Contact']] as const;
@@ -12,7 +12,7 @@ function PageHeading({ index, title, subtitle }: { index: string; title: string;
 }
 function ContentsLabel({ children }: { children: React.ReactNode }) { return <div className="contents-label"><span>Contents</span><span className="dotted-line"/><span>{children}</span></div>; }
 function About() {
-  return <><div className="about-heading"><p className="label">LAHORE, PAKISTAN</p><h1>Syeda Mariam<br /><em>Naqvi</em></h1><p className="subtitle">A little about me.</p></div><div className="about-copy">{personal.portrait && <img className="portrait" src={personal.portrait} alt="Syeda Mariam Naqvi"/>}{about.map(p => <p key={p}>{p}</p>)}<p className="personal-thought">{personalNotes.reading}</p></div></>;
+  return <><div className="about-heading"><p className="label">LAHORE, PAKISTAN</p><h1>Syeda Mariam<br /><em>Naqvi</em></h1><h2 className="subtitle about-subtitle">{aboutHeading}</h2></div><div className="about-copy">{personal.portrait && <img className="portrait" src={personal.portrait} alt="Syeda Mariam Naqvi"/>}{about.map(p => <p key={p}><InlineText text={p}/></p>)}</div></>;
 }
 function Graphics() {
   return <><PageHeading index="I" title="Graphics & postcards" subtitle="Things made to be seen, held, and sent."/><ContentsLabel>GRAPHIC WORK</ContentsLabel>{graphicWork.map((item, i) => <article className="entry" key={item.title}><span className="entry-number">{roman[i] ?? i + 1}</span><div><h2>{item.title}</h2><p>{item.description}</p>{item.images.length > 0 && <div className="image-grid">{item.images.map(image => <figure key={image.src}><img src={image.src} alt={image.alt} loading="lazy"/>{image.caption && <figcaption>{image.caption}</figcaption>}</figure>)}</div>}<p className="quiet-note">Designs and further details will be added to this collection.</p></div><span className="entry-meta">{item.category}</span></article>)}</>;
