@@ -89,4 +89,4 @@ In Vercel, open this project → Deployments → the newest deployment. Read its
 
 GitHub's **Website build check** validates the code but does not publish a website. GitHub Pages is not used. If a Vercel deployment is Ready but the production URL is old, check that it is a Production deployment for `main`, then promote the intended deployment to Production in Vercel. Account settings and deployment history require access to the hosting dashboard.
 
-Postcard collections are stored in `postcardCollections` in portfolio.ts. Display order is top → FCCU → TEDxFCCU → last. The FCCU assets are pending a ZIP under 32 MiB; insert that collection between Selected postcards and TEDxFCCU when supplied. Eight original PNG designs are currently stored in public/graphics.
+Postcard collections are stored in `postcardCollections` in portfolio.ts. Display order is top → FCCU → TEDxFCCU → last. Ten FCCU designs are placed between Selected postcards and TEDxFCCU. Eighteen original PNG designs are currently stored in public/graphics. Eid and Faiz postcards have individual captions; FCCU and TEDxFCCU have captions beneath their collections.

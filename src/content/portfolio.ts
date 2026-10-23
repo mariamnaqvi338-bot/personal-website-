@@ -17,7 +17,7 @@ export const about = [
   "and this website? yet another way of channelling my inner child, who is probably very pleased that, okay, i know how to make websites now too. it's also a little exercise in putting myself out there. the photographs, the writing, the work, the doubts, all these different sides of me, sharing one small corner of the internet. a whole lot of self-exposure, apparently. but here we are."
 ];
 
-export type PostcardImage = { src: string; alt: string; width?: number; height?: number };
+export type PostcardImage = { src: string; alt: string; width?: number; height?: number; caption?: string };
 export type PostcardCollection = { title: string; caption: string; images: PostcardImage[] };
 export const postcardCollections: PostcardCollection[] = [
   {
@@ -28,11 +28,79 @@ export const postcardCollections: PostcardCollection[] = [
         "src": "/graphics/top/2.png",
         "alt": "An Eid Mubarak collage postcard with Urdu lettering, henna-painted hands, flowers, and vintage paper.",
         "width": 1429,
-        "height": 2000
+        "height": 2000,
+        "caption": "Vintage Eid Mubarak postcards for your loved ones."
       },
       {
         "src": "/graphics/top/4.png",
         "alt": "A collage postcard featuring a black-and-white portrait of Faiz Ahmed Faiz over handwritten Urdu and floral details.",
+        "width": 1429,
+        "height": 2000,
+        "caption": "This postcard is a reminder of my love for Faiz Ahmed Faiz and his words."
+      }
+    ]
+  },
+  {
+    "title": "FCCU",
+    "caption": "Made these for my university, inspired by how I fell in love with FCCU’s campus.",
+    "images": [
+      {
+        "src": "/graphics/fccu/7.png",
+        "alt": "FCCU brick buildings beneath a blue sky, with white Urdu FCCU calligraphy.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/fccu/8.png",
+        "alt": "A shaded FCCU campus lawn beneath trees, with white Urdu calligraphy.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/fccu/10.png",
+        "alt": "A sunlit archway in a dark FCCU corridor, with Urdu calligraphy.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/fccu/11.png",
+        "alt": "An upward view between FCCU brick buildings, with black Urdu calligraphy.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/fccu/12.png",
+        "alt": "An FCCU building and lawn under a cloudy sky, with white Urdu calligraphy.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/fccu/13.png",
+        "alt": "The setting sun framed by campus trees, with white Urdu calligraphy.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/fccu/14.png",
+        "alt": "An FCCU courtyard framed by an arch, with white Urdu calligraphy.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/fccu/16.png",
+        "alt": "An FCCU campus building reflected in water at sunset, with golden Urdu calligraphy.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/fccu/17.png",
+        "alt": "A campus building reflected in water beneath trees, with white Urdu calligraphy.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/fccu/18.png",
+        "alt": "A sunny FCCU campus lawn and brick buildings, with white Urdu calligraphy.",
         "width": 1429,
         "height": 2000
       }
