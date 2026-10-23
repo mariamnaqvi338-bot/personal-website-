@@ -178,6 +178,7 @@ export const links = {
   linkedin: 'https://www.linkedin.com/in/syedamariam',
   photography: 'https://syedamariamnaqvi.vsco.site/',
   vsco: 'https://vsco.co/mariamsmemory/gallery',
+  initiative: 'https://theyoungeconomistinitiative.com/',
 };
 export const selectedResearch = [
   {title: 'Adaptive Social Protection evaluation', label: 'Research experience · CERP', description: 'Contributed to a mixed-methods evaluation of the GIZ Adaptive Social Protection programme across four districts of Sindh. Work included SurveyCTO/XLSForm quality assurance, data coding, index development in SPSS, and qualitative analysis using ATLAS.ti.'},
