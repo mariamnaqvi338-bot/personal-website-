@@ -19,4 +19,71 @@ export const about = [
 
 export type PostcardImage = { src: string; alt: string; width?: number; height?: number };
 export type PostcardCollection = { title: string; caption: string; images: PostcardImage[] };
-export const postcardCollections: PostcardCollection[] = [];
+export const postcardCollections: PostcardCollection[] = [
+  {
+    "title": "Selected postcards",
+    "caption": "",
+    "images": [
+      {
+        "src": "/graphics/top/2.png",
+        "alt": "An Eid Mubarak collage postcard with Urdu lettering, henna-painted hands, flowers, and vintage paper.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/top/4.png",
+        "alt": "A collage postcard featuring a black-and-white portrait of Faiz Ahmed Faiz over handwritten Urdu and floral details.",
+        "width": 1429,
+        "height": 2000
+      }
+    ]
+  },
+  {
+    "title": "TEDxFCCU",
+    "caption": "I made these for the TEDxFCCU event.",
+    "images": [
+      {
+        "src": "/graphics/ted/19.png",
+        "alt": "A TEDxFCCU postcard with red event lettering over an illuminated university courtyard.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/ted/20.png",
+        "alt": "A TEDxFCCU postcard with red event lettering over a black-and-white photograph of an evening crowd.",
+        "width": 1429,
+        "height": 2000
+      }
+    ]
+  },
+  {
+    "title": "More postcards",
+    "caption": "",
+    "images": [
+      {
+        "src": "/graphics/last/3.png",
+        "alt": "A Pakistan postcard with green typography and a collage of black-and-white archival scenes.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/last/5.png",
+        "alt": "An illustrated Allama Iqbal postcard with black Urdu calligraphy over repeated Urdu text.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/last/6.png",
+        "alt": "A black postcard featuring a seated portrait of Allama Iqbal and Urdu calligraphy.",
+        "width": 1429,
+        "height": 2000
+      },
+      {
+        "src": "/graphics/last/fsdf.png",
+        "alt": "A patterned postcard with pixel-art watermelon slices and the repeated words From River to the Sea.",
+        "width": 1429,
+        "height": 2000
+      }
+    ]
+  }
+];

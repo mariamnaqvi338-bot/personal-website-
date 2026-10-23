@@ -296,3 +296,5 @@ footer {
 .postcard-pending{text-align:center}
 @media(max-width:900px){.postcard-tiles{columns:2}}
 @media(max-width:480px){.postcard-tiles{columns:1}}
+.postcard-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px;columns:auto}
+.postcard-tiles figure{margin:0}

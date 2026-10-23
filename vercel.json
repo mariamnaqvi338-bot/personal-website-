@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/((?!assets/|Mariam-Naqvi-CV.pdf|photos/|writing/|portrait.jpg|portrait.png).*)",
+      "source": "/((?!assets/|Mariam-Naqvi-CV.pdf|photos/|graphics/|writing/|portrait.jpg|portrait.png).*)",
       "destination": "/index.html"
     }
   ],
