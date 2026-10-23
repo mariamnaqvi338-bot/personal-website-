@@ -85,6 +85,6 @@ Some reflection images are hosted on Substack. If an image cannot load, the page
 
 ### If deployment fails
 
-In Vercel, open this project → Deployments → the newest deployment. Read its build log. Confirm that the connected repository is `mariamnaqvi338-bot/personal-site-`, Production Branch is `main`, and Root Directory is the repository root (leave blank). The framework, build command and output directory are set in `vercel.json`. Use a supported Node.js version such as 24.x.
+In Vercel, open this project → Deployments → the newest deployment. Read its build log. Confirm that the connected repository is `mariamnaqvi338-bot/personal-website-`, Production Branch is `main`, and Root Directory is the repository root (leave blank). The framework, build command and output directory are set in `vercel.json`. Use a supported Node.js version such as 24.x.
 
 GitHub's **Website build check** validates the code but does not publish a website. GitHub Pages is not used. If a Vercel deployment is Ready but the production URL is old, check that it is a Production deployment for `main`, then promote the intended deployment to Production in Vercel. Account settings and deployment history require access to the hosting dashboard.
