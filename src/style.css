@@ -172,3 +172,57 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 20px
   .profile-photo { max-width: 150px; }
   .cv-copy article, .entry { break-inside: avoid; }
 }
+/* Compact, centered reading pages and contact details. */
+.reflections-page .reflection-body {
+  max-width: 1050px;
+  margin-inline: auto;
+  text-align: center;
+}
+.reflections-page .reflection-body p,
+.reflections-page .reflection-body p[dir=auto] {
+  font-size: 16px;
+  line-height: 1.35;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.reflections-page .reading-navigation {
+  margin: 24px auto 0;
+  padding-top: 12px;
+  gap: 12px 24px;
+  justify-content: center;
+}
+.reflections-page .reading-navigation a,
+.reflections-page .reading-navigation a:last-child:not(:first-child) {
+  text-align: center;
+}
+.reflections-page .reading-navigation span { margin-bottom: 2px; }
+.reflections-page .reading-navigation strong {
+  font-size: 16px;
+  line-height: 1.35;
+}
+.article-heading .page-heading { padding: 14px 0 4px; }
+.article-byline { font-size: 16px; line-height: 1.35; margin-bottom: 16px; }
+.reflections-page .writing-image { margin: 16px auto; }
+.reflections-page .writing-image img { max-height: 340px; }
+.contact-page .page-heading { padding-bottom: 10px; }
+.contact-page .reading-copy {
+  max-width: 1050px;
+  margin-inline: auto;
+  text-align: center;
+}
+.contact-page .reading-copy p {
+  font-size: 16px;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+.contact-page .contact-links {
+  justify-content: center;
+  gap: 6px 22px;
+  margin-top: 12px;
+}
+footer {
+  justify-content: center;
+  text-align: center;
+  gap: 6px 18px;
+  padding-block: 14px 20px;
+}
