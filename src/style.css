@@ -7,3 +7,17 @@
 .photo-tiles{columns:3;column-gap:16px;margin:45px 0 30px}.photo-tiles figure{break-inside:avoid;margin:0 0 16px}.photo-tiles a,.photo-tiles img{display:block;width:100%}.photo-tiles img{height:auto}.photo-tiles figcaption{font-size:17px;color:var(--muted);margin-top:8px}.vsco-invitation{max-width:690px;margin:35px auto 0;text-align:center;font-size:22px}@media(max-width:800px){.photo-tiles{columns:2}}@media(max-width:480px){.photo-tiles{columns:1}.vsco-invitation{font-size:20px}}
 
 .about-copy p{margin-bottom:26px}.about-subtitle{max-width:100%;font-weight:400;letter-spacing:0}
+
+/* A wider reading layout for the full personal introduction. */
+.about-landscape{max-width:1280px;padding-bottom:25px}
+.about-landscape .about-heading{display:flex;align-items:center;justify-content:space-between;gap:30px;text-align:left;padding:24px 0 28px;border-bottom:1px solid var(--rule);margin-bottom:25px}
+.about-landscape .about-heading h1{font-size:38px;line-height:1.1;margin:10px 0}
+.about-landscape .about-heading h1 br{display:none}
+.about-landscape .about-heading h1 em{margin-left:.2em}
+.about-landscape .about-subtitle{font-size:20px;margin:0;text-align:left}
+.about-landscape .about-copy{max-width:none;margin:0;columns:3;column-gap:35px;font-size:16px;line-height:1.45}
+.about-landscape .about-copy p{margin:0 0 12px;break-inside:avoid}
+.about-portrait{width:120px;height:145px;object-fit:cover;object-position:center 30%;flex-shrink:0}
+@media(min-width:1000px) and (max-height:950px){.about-landscape .about-copy{font-size:15px;line-height:1.4}.about-landscape .about-copy p{margin-bottom:10px}.about-landscape .about-heading{padding-top:10px;padding-bottom:18px;margin-bottom:20px}.about-landscape .about-heading h1{font-size:34px}}
+@media(max-width:1000px){.about-landscape .about-copy{columns:2;font-size:17px;line-height:1.5}}
+@media(max-width:650px){.about-landscape .about-copy{columns:1;font-size:20px;line-height:1.6}.about-landscape .about-heading{align-items:flex-start;flex-wrap:wrap;padding-top:25px}.about-landscape .about-heading h1{font-size:34px}.about-landscape .about-subtitle{font-size:19px}.about-portrait{width:100px;height:125px}}
