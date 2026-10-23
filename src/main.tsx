@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Link, NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { personal, links, personalNotes, selectedResearch, experience, skills, leadership, photography } from './content/site';
-import { about, aboutHeading, graphicWork, currentProjects, reflections } from './content/portfolio';
+import { about, aboutHeading, graphicWork, reflections } from './content/portfolio';
 import './style.css';
 
-const navigation = [['/', 'About Me'], ['/graphics', 'Graphics & Postcards'], ['/reflections', 'Reflections'], ['/photography', 'Photography'], ['/cv', 'CV'], ['/projects', 'Projects'], ['/current-projects', 'Current Projects'], ['/contact', 'Contact']] as const;
+const navigation = [['/', 'About Me'], ['/graphics', 'Graphics & Postcards'], ['/reflections', 'Reflections'], ['/photography', 'Photography'], ['/cv', 'CV'], ['/projects', 'Projects'], ['/contact', 'Contact']] as const;
 const roman = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
 function PageHeading({ index, title, subtitle }: { index: string; title: string; subtitle: string }) {
   return <div className="page-heading"><p className="label">{index} / A PERSONAL COLLECTION</p><h1>{title}</h1><p className="subtitle" dir="auto">{subtitle}</p></div>;
@@ -49,16 +49,13 @@ function CV() {
 function Projects() {
   return <><PageHeading index="V" title="Projects" subtitle="Research, questions, and work in practice."/><ContentsLabel>{selectedResearch.length} SELECTED ENTRIES</ContentsLabel>{selectedResearch.map((item,i) => <article className="entry" key={item.title}><span className="entry-number">{roman[i] ?? i+1}</span><div><h2>{item.title}</h2><p>{item.description}</p></div><span className="entry-meta">{item.label}</span></article>)}</>;
 }
-function CurrentProjects() {
-  return <><PageHeading index="VI" title="Current projects" subtitle="Work still taking shape."/><ContentsLabel>IN PROGRESS</ContentsLabel>{currentProjects.map((item,i) => <article className="entry" key={item.title}><span className="entry-number">{roman[i] ?? i+1}</span><div><h2>{item.title}</h2><p>{item.description}</p></div><span className="entry-meta">{item.category}</span></article>)}</>;
-}
 function Contact() {
-  return <><PageHeading index="VII" title="Contact me" subtitle="For a conversation, a question, or something we could make together."/><div className="reading-copy"><p>I’m happy to hear from you about research, writing, photography, design, or collaboration.</p><p><a className="contact-email" href={`mailto:${personal.email}`}>{personal.email}</a></p><p className="quiet-note">{personal.location}</p><div className="contact-links"><a href={links.linkedin}>LinkedIn ↗</a><a href={links.github}>GitHub ↗</a><a href={links.photography}>Photography portfolio ↗</a><a href={links.vsco}>VSCO ↗</a></div></div></>;
+  return <><PageHeading index="VI" title="Contact me" subtitle="For a conversation, a question, or something we could make together."/><div className="reading-copy"><p>I’m happy to hear from you about research, writing, photography, design, or collaboration.</p><p><a className="contact-email" href={`mailto:${personal.email}`}>{personal.email}</a></p><p className="quiet-note">{personal.location}</p><div className="contact-links"><a href={links.linkedin}>LinkedIn ↗</a><a href={links.github}>GitHub ↗</a><a href={links.photography}>Photography portfolio ↗</a><a href={links.vsco}>VSCO ↗</a></div></div></>;
 }
 function NotFound(){ return <div className="empty-state"><h1>Page not found.</h1><Link className="underlined" to="/">Back to About Me</Link></div>; }
 function App() {
   const location = useLocation();
   useEffect(() => { window.scrollTo(0,0); const page = navigation.find(([path]) => path === location.pathname); const piece = reflections.find(item => `/reflections/${item.slug}` === location.pathname); document.title = `${piece?.title ?? page?.[1] ?? 'Page not found'} — ${personal.name}`; const main = document.getElementById('main'); if(main && location.key !== 'default') main.focus({preventScroll:true}); }, [location]);
-  return <><a className="skip-link" href="#main">Skip to content</a><header className="site-header"><Link className="wordmark" to="/">Syeda Mariam Naqvi</Link><nav aria-label="Main navigation">{navigation.map(([path,label]) => <NavLink key={path} to={path} end={path === '/'}>{label}</NavLink>)}</nav></header><main id="main" className={location.pathname === '/' ? 'about-page' : undefined} tabIndex={-1}><Routes><Route path="/" element={<About/>}/><Route path="/graphics" element={<Graphics/>}/><Route path="/reflections" element={<Reflections/>}/><Route path="/reflections/:slug" element={<Reflection/>}/><Route path="/photography" element={<Photography/>}/><Route path="/cv" element={<CV/>}/><Route path="/projects" element={<Projects/>}/><Route path="/current-projects" element={<CurrentProjects/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<NotFound/>}/></Routes></main><footer><span>A personal collection by Syeda Mariam Naqvi</span><span>© {new Date().getFullYear()}</span></footer></>;
+  return <><a className="skip-link" href="#main">Skip to content</a><header className="site-header"><Link className="wordmark" to="/">Syeda Mariam Naqvi</Link><nav aria-label="Main navigation">{navigation.map(([path,label]) => <NavLink key={path} to={path} end={path === '/'}>{label}</NavLink>)}</nav></header><main id="main" className={location.pathname === '/' ? 'about-page' : `${location.pathname.split('/')[1]}-page`} tabIndex={-1}><Routes><Route path="/" element={<About/>}/><Route path="/graphics" element={<Graphics/>}/><Route path="/reflections" element={<Reflections/>}/><Route path="/reflections/:slug" element={<Reflection/>}/><Route path="/photography" element={<Photography/>}/><Route path="/cv" element={<CV/>}/><Route path="/projects" element={<Projects/>}/><Route path="/current-projects" element={<Navigate to="/projects" replace/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<NotFound/>}/></Routes></main><footer><span>A personal collection by Syeda Mariam Naqvi</span><span>© {new Date().getFullYear()}</span></footer></>;
 }
 createRoot(document.getElementById('root')!).render(<React.StrictMode><BrowserRouter><App/></BrowserRouter></React.StrictMode>);

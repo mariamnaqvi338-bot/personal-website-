@@ -1,6 +1,6 @@
 # Syeda Mariam Naqvi — personal portfolio
 
-Eight separate pages: About Me, Graphics & Postcards, Reflections, Photography, CV, Projects, Current Projects, and Contact. Warm paper, serif typography, small monospaced labels, and editorial lists inspired by the supplied screenshots.
+Seven separate pages: About Me, Graphics & Postcards, Reflections, Photography, CV, Projects, and Contact. The former /current-projects route redirects to /projects. Warm paper, serif typography, small monospaced labels, and editorial lists inspired by the supplied screenshots.
 
 ## Run
 

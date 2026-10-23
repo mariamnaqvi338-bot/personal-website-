@@ -49,3 +49,24 @@ footer{padding-block:25px 35px}
 @media(max-width:700px){.site-header,main,footer{width:calc(100% - 36px)}.site-header{padding:23px 0;gap:18px}nav{gap:8px 18px}.about-page{padding-top:15px}.about-layout{grid-template-columns:1fr;gap:35px}.about-profile{position:static;display:grid;grid-template-columns:minmax(0,1fr) 130px;gap:0 18px;align-items:start}.about-profile .label{grid-column:1}.about-profile h1{grid-column:1;font-size:34px;margin:12px 0}.profile-photo{grid-column:2;grid-row:1 / span 3}.profile-photo figcaption{font-size:15px;line-height:1.4}.about-story{font-size:21px;line-height:1.6}.about-story h2{font-size:27px;margin-bottom:24px}.about-story .opening-line{font-size:23px}.page-heading{padding:30px 0}.page-heading h1{font-size:43px}.page-heading .subtitle{font-size:23px}.entry{grid-template-columns:24px minmax(0,1fr);gap:15px}.entry h2{font-size:28px}.entry p{font-size:20px}.entry-meta{grid-column:2}.archive-intro{font-size:21px;margin-bottom:30px}.reading-copy{font-size:22px}.photo-tiles{columns:2;column-gap:12px}.photo-tiles figure{margin-bottom:12px}}
 @media(max-width:400px){.photo-tiles{columns:1}.about-profile{grid-template-columns:minmax(0,1fr) 108px}.about-profile h1{font-size:30px}}
 @media print{.about-profile{position:static}.about-layout{display:block}.profile-photo{max-width:150px}.about-story{max-width:none}.about-story p{font-size:16px}.photo-tiles{columns:3}}
+
+/* Centered introductions; retain the wider content and gallery below. */
+.site-header{align-items:center;gap:16px}
+.site-header .wordmark{text-align:center}
+.site-header nav{justify-content:center}
+.page-heading{max-width:1100px;margin-inline:auto;text-align:center;padding:30px 0 26px}
+.page-heading h1{font-size:clamp(34px,3.3vw,48px);margin:12px 0 8px}
+.page-heading .subtitle{margin-inline:auto;font-size:23px}
+.page-heading .label{margin-bottom:0}
+.about-profile h1{font-size:clamp(30px,2.8vw,42px);margin:14px 0 22px}
+.about-story h2{font-size:27px;padding-bottom:18px;margin-bottom:22px}
+.article-heading .page-heading h1{font-size:clamp(32px,3.3vw,46px);margin-inline:auto}
+.article-byline{text-align:center;margin-bottom:32px}
+.archive-intro{text-align:center;margin:0 auto 32px}
+.photography-page>.reading-copy{max-width:900px;margin-inline:auto;text-align:center;font-size:23px}
+.photography-page .vsco-invitation{font-size:17px;line-height:1.4;text-align:center;margin:20px auto 0}
+.photography-page .vsco-invitation+.vsco-invitation{margin-top:4px}
+.cv-page .cv-copy{max-width:960px;margin-inline:auto}
+.cv-page .download{text-align:center;margin:0 auto 26px}
+.projects-page .entry h2{font-weight:700;font-size:30px}
+@media(max-width:700px){.site-header{gap:14px}.page-heading{padding:22px 0}.page-heading h1{font-size:34px;margin:10px 0 6px}.page-heading .subtitle{font-size:21px}.about-profile h1{font-size:30px}.about-story h2{font-size:24px}.photography-page>.reading-copy{font-size:21px}.photography-page .vsco-invitation{font-size:16px}.projects-page .entry h2{font-size:26px}}
